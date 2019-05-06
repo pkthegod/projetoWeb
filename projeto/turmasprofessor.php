@@ -28,84 +28,57 @@
     <head>
         <meta charset="UTF-8">
         <title>Evolução</title>
-        
         <!-- estilo -->
         <link href="_css/estilo.css" rel="stylesheet">
         <link href="_css/produtos.css" rel="stylesheet">
         <link href="_css/produto_pesquisa.css" rel="stylesheet">
-        
-        
-        
-   
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     </head>
-
     <body>
         <?php include_once("_incluir/topoprofessor.php"); ?>
-        
         <main>
-            
              <div class="vertical-menu">
                       <a href="turmasprofessor.php" class="active">Turmas</a>
                       <a href="chamadaprofessor.php">Chamadas</a>
                       <a href="#">Calendário</a>
                       <a href="#">Boletos</a>
-                      
-              </div> 
-            
+            </div> 
             <div> 
             <?php
                 if(!$resultadotm) {
                     die("Não há turmas");   
                 }
-                
-                
             ?>
-                
-                
                 <table border="12">
                       <tr>
                         <th>Modalidade</th>
                         <th>Dia da Semana</th> 
                         <th>Horário</th>
                       </tr>
-                         
                            <?php
                          while ($dadostm = mysqli_fetch_assoc($resultadotm)){
                     ?>
-                   
                       <tr>
-                     
                         <td>
-                            
-                            
                           <?php
-                             
                             echo utf8_encode($dadostm["nomemodalidade"]);       ?></td>
                             <td><?php
-                                
-                    
                                 echo utf8_encode($dadostm["dia"]);      ?>
-                             
                              </td>
                             <td >
-                          
                           <?php
                              echo  $dadostm["horarioinicial"] . " " . "às" . " " . $dadostm["horariofinal"];  
-                            
                              ?>
-                          
-                          
                              </td>
                       </tr>
                       <?php 
                          }
                         ?>
                     </table>
-                      
             </div>
-            
         </main>
-
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js" integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o" crossorigin="anonymous"></script>
         <?php include_once("_incluir/rodape.php"); ?>  
     </body>
 </html>
