@@ -2,7 +2,6 @@
 <?php
     // adicionar variaveis de sessao
     session_start();
-
     if ( isset( $_POST["usuario"] )  ) {
         $usuario    = $_POST["usuario"];
         $senha      = $_POST["senha"];    
@@ -18,14 +17,15 @@
         
         $informacao = mysqli_fetch_assoc($acesso);
         
-        if ( empty($informacao) ) {
-            $mensagem = "Login sem sucesso.";
+        if (empty($informacao)) {
+            $mensagem = "Login falhou.";
         } else {
             $_SESSION["user_portal"] = $informacao["professorID"];
             header("location:turmasprofessor.php");
         }
     }
 ?>
+
 <!doctype html>
 <html>
     <head>
@@ -35,17 +35,15 @@
         <!-- estilo -->
         <link href="_css/estilo.css" rel="stylesheet">
         <link href="_css/login.css" rel="stylesheet">
-        
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     </head>
-
     <body>
         <header>
             <div id="header_central">
-                <img src="">
-                <img src="">
+                <img src="" alt="">
+                <img src="" alt="">
             </div>
         </header>
-        
         <main>
             <div id="janela_login">
                 <form action="loginprofessor.php" method="post">
@@ -58,16 +56,12 @@
                         if ( isset($mensagem)) { 
                     ?>
                         <p><?php echo $mensagem ?></p>
-                    
                     <?php
                         }
                     ?>                    
-                
-                
                 </form>
             </div>
         </main>
-
         <footer>
             <div id="footer_central">
                 <p>Evolução Esportes - 2019</p>
@@ -79,4 +73,3 @@
 <?php
     // Fechar conexao
     mysqli_close($conecta);
-?>

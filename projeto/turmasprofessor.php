@@ -7,21 +7,13 @@
         header("location:loginprofessor.php");
     }
     // fim do teste de seguranca
-
     // Determinar localidade BR
     setlocale(LC_ALL, 'pt_BR');
-
     $professorid = $_SESSION["user_portal"];
-
     //consulta a tabela turmamodalidades, turmas, dia semana, horários , modalidade.
-
     $consultatm = "SELECT * FROM turmamodalidades tmd JOIN turmas tm ON tmd.turmaid = tm.turmaID JOIN diasemana ds ON tm.diasemana = ds.diaID JOIN horarios hrs ON tm.horario = hrs.horarioid JOIN modalidades md ON tmd.modalidadeid = md.modalidadeID  WHERE tmd.professorid = {$professorid} ORDER BY ds.diaID ASC ";
 
-
-
     $resultadotm = mysqli_query($conecta, $consultatm);
-
-  
 ?>
 <!doctype html>
 <html>
@@ -40,8 +32,8 @@
              <div class="vertical-menu">
                       <a href="turmasprofessor.php" class="active">Turmas</a>
                       <a href="chamadaprofessor.php">Chamadas</a>
-                      <a href="#">Calendário</a>
-                      <a href="#">Boletos</a>
+                      <a href="calendarioprofessor.php">Calendário</a>
+                      <a href="boletosprofessor.php">Boletos</a>
             </div> 
             <div> 
             <?php
@@ -86,4 +78,3 @@
 <?php
     // Fechar conexao
     mysqli_close($conecta);
-?>

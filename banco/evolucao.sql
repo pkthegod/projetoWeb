@@ -1,12 +1,3 @@
--- phpMyAdmin SQL Dump
--- version 4.8.3
--- https://www.phpmyadmin.net/
---
--- Host: 127.0.0.1
--- Generation Time: 31-Dez-2018 às 20:53
--- Versão do servidor: 10.1.35-MariaDB
--- versão do PHP: 7.2.9
-
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
 START TRANSACTION;
@@ -25,10 +16,6 @@ CREATE DATABASE evolucao;
 
 
 USE evolucao;
---
-
--- --------------------------------------------------------
-
 --
 -- Estrutura da tabela `alunos`
 --
@@ -55,17 +42,12 @@ CREATE TABLE `alunos` (
   `usuario` varchar(45) NOT NULL,
   `senha` int(8) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
 --
 -- Extraindo dados da tabela `alunos`
 --
-
 INSERT INTO `alunos` (`alunoID`, `nomealuno`, `datanascimento_aluno`, `imagemaluno`, `nivel`, `nomeresponsavel`, `cpf`, `datanascimento_responsavel`, `rg`, `email`, `endereco`, `complemento`, `numero`, `cidade`, `estadoID`, `cep`, `ddd`, `telefone`, `usuario`, `senha`) VALUES
 (2, 'Francisco Mizael', '1999-06-10', NULL, 1, 'Francisco Carlos', '700.063.777-34', '1959-09-30', NULL, 'mizael.f@hotmail.com', 'Qa 7', NULL, '11', 'Planaltina', 9, '73.752-107', '61', '993529420', 'a157', 123456),
 (3, 'Antonio Mikael', '2001-04-02', NULL, 1, 'Francisco Carlos', '700063377734', '1959-09-30', NULL, 'mikael.vascaino@hotmail.com', 'Qa 7', NULL, '11', 'Planaltina', 9, '73752107', '61', '993529420', 'mikael', 1234546);
-
--- --------------------------------------------------------
-
 --
 -- Estrutura da tabela `alunosexperimental`
 --

@@ -1,29 +1,26 @@
-<?php require_once("../conexao/conexao.php"); ?>
+<?php require_once("../conexao/conexao.php");?>
 <?php
     // teste de segurança
     session_start();
-    if ( !isset($_SESSION["user_portal"]) ) {
+    if (!isset($_SESSION["user_portal"])) {
         header("location:login.php");
         break;
     }
     // fim do teste de seguranca
-
-    if ( isset($_GET["codigo"]) ) {
+    if(isset($_GET["codigo"])) {
         $produto_id = $_GET["codigo"];
-    } else {
+    }else{
         Header("Location: login.php");
     }
-
     // Consulta ao banco de dados
     $consulta = "SELECT * ";
     $consulta .= "FROM produtos ";
     $consulta .= "WHERE produtoID = {$produto_id} ";
-    $detalhe    = mysqli_query($conecta,$consulta);
-
+    $detalhe = mysqli_query($conecta,$consulta);
     // Testar erro
-    if ( !$detalhe ) {
+    if (!$detalhe){
         die("Falha no Banco de dados");
-    } else {
+    }else{
         $dados_detalhe = mysqli_fetch_assoc($detalhe);
         $produtoID      = $dados_detalhe["produtoID"];
         $nomeproduto    = $dados_detalhe["nomeproduto"];
@@ -38,39 +35,34 @@
 ?>
 <!doctype html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <title>Curso PHP FUNDAMENTAL</title>
-        
-        <!-- estilo -->
-        <link href="_css/estilo.css" rel="stylesheet">
-        <link href="_css/produto_detalhe.css" rel="stylesheet">
-    </head>
-
-    <body>
-        <?php include_once("_incluir/topo.php"); ?>
-        
-        <main>  
-            <div id="detalhe_produto">
-                <ul>
-                    <li class="imagem"><img src="<?php echo $imagemgrande ?>"></li>
-                    <li><h2><?php echo $nomeproduto ?></h2></li>
-                    <li><b>Descri&ccedil;&atilde;o: </b><?php echo $descricao ?></li>
-                    <li><b>C&oacute;digo de Barra: </b><?php echo $codigobarra ?></li>
-                    <li><b>Tempo de Entrega: </b><?php echo $tempoentrega ?></li>
-                    <li><b>Pre&ccedil;o Revenda: </b><?php echo "R$ " . number_format($precorevenda,2,",",".") ?></li>
-                    <li><b>Pre&ccedil;o Unit&aacute;rio: </b><?php echo "R$ " . number_format($precounitario,2,",",".") ?></li>
-                    <li><b>Estoque: </b><?php echo $estoque ?></li>
-                </ul>
-               
-            </div>
-        </main>
-
-        <?php include_once("_incluir/rodape.php"); ?>
-    </body>
+<head>
+    <meta charset="UTF-8">
+    <title>Curso PHP FUNDAMENTAL</title>
+    <!-- estilo -->
+    <link href="_css/estilo.css" rel="stylesheet">
+    <link href="_css/produto_detalhe.css" rel="stylesheet">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<body>
+    <?php include_once("_incluir/topo.php");?>
+    <main>  
+        <div id="detalhe_produto">
+            <ul>
+                <li class="imagem"><img src="<?php echo $imagemgrande ?>"></li>
+                <li><h2><?php echo $nomeproduto ?></h2></li>
+                <li><b>Descrição: </b><?php echo $descricao ?></li>
+                <li><b>Código de Barra: </b><?php echo $codigobarra ?></li>
+                <li><b>Tempo de Entrega: </b><?php echo $tempoentrega ?></li>
+                <li><b>Preço Revenda: </b><?php echo "R$ " . number_format($precorevenda,2,",",".") ?></li>
+                <li><b>Preç;o Unitário: </b><?php echo "R$ " . number_format($precounitario,2,",",".") ?></li>
+                <li><b>Estoque: </b><?php echo $estoque ?></li>
+            </ul>
+        </div>
+    </main>
+    <?php include_once("_incluir/rodape.php");?>
+</body>
 </html>
 
 <?php
     // Fechar conexao
     mysqli_close($conecta);
-?>
