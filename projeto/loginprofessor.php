@@ -28,46 +28,46 @@
 
 <!doctype html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <title>Curso PHP FUNDAMENTAL</title>
-        
-        <!-- estilo -->
-        <link href="_css/estilo.css" rel="stylesheet">
-        <link href="_css/login.css" rel="stylesheet">
-        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-    </head>
-    <body>
-        <header>
-            <div id="header_central">
-                <img src="" alt="">
-                <img src="" alt="">
-            </div>
-        </header>
-        <main>
-            <div id="janela_login">
-                <form action="loginprofessor.php" method="post">
-                    <h2>Tela de Login</h2>
-                    <input type="text" name="usuario" placeholder="Usuário">
-                    <input type="password" name="senha" placeholder="Senha">
-                    <input type="submit" value="Login">
-                
-                    <?php
-                        if ( isset($mensagem)) { 
-                    ?>
-                        <p><?php echo $mensagem ?></p>
-                    <?php
-                        }
-                    ?>                    
-                </form>
-            </div>
-        </main>
-        <footer>
-            <div id="footer_central">
-                <p>Evolução Esportes - 2019</p>
-            </div>
-        </footer>
-    </body>
+<head>
+    <meta charset="UTF-8">
+    <title>Curso PHP FUNDAMENTAL</title>
+
+    <!-- estilo -->
+    <link href="_css/estilo.css" rel="stylesheet">
+    <link href="_css/login.css" rel="stylesheet">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<body>
+    <header>
+        <div id="header_central">
+            <img src="" alt="">
+            <img src="" alt="">
+        </div>
+    </header>
+    <main>
+        <div id="janela_login">
+            <form action="loginprofessor.php" method="post">
+                <h2>Tela de Login</h2>
+                <input type="text" name="usuario" placeholder="Usuário">
+                <input type="password" name="senha" placeholder="Senha">
+                <input type="submit" value="Login">
+
+                <?php
+                    if ( isset($mensagem)) { 
+                ?>
+                    <p><?php echo $mensagem ?></p>
+                <?php
+                    }
+                ?>                    
+            </form>
+        </div>
+    </main>
+    <footer>
+        <div id="footer_central">
+            <p>Evolução Esportes - 2019</p>
+        </div>
+    </footer>
+</body>
 </html>
 
 <?php
