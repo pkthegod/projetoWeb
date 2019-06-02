@@ -1,5 +1,5 @@
 <footer>
     <div id="footer_central">
-        <p>Evolução Esportes - 2019</p>
+        <p>Projeto Salvador</p>
     </div>
 </footer>

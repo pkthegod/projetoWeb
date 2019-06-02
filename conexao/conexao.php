@@ -3,7 +3,7 @@
     $servidor   = "localhost";
     $usuario    = "root";
     $senha      = "";
-    $banco      = "evolucao";
+    $banco      = "projeto";
     $conecta = mysqli_connect($servidor,$usuario,$senha,$banco);
 
     // Passo 2 - Testar conexao

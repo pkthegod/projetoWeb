@@ -8,7 +8,7 @@
         $senha      = $_POST["senha"];    
         
         $login = "SELECT * ";
-        $login .= "FROM alunos ";
+        $login .= "FROM users ";
         $login .= "WHERE usuario = '{$usuario}' and senha = '{$senha}' ";
     
         $acesso = mysqli_query($conecta, $login);
@@ -21,8 +21,8 @@
         if ( empty($informacao) ) {
             $mensagem = "Login sem sucesso.";
         } else {
-            $_SESSION["user_portal"] = $informacao["alunoID"];
-            header("location:bilhetes.php");
+            $_SESSION["user_portal"] = $informacao["userID"];
+            header("location:listagem.php");
         }
     }
 ?>
@@ -30,27 +30,26 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>Evolução</title>
+        <title>Curso PHP FUNDAMENTAL</title>
         
         <!-- estilo -->
         <link href="_css/estilo.css" rel="stylesheet">
         <link href="_css/login.css" rel="stylesheet">
-        
         
     </head>
 
     <body>
         <header>
             <div id="header_central">
-                <img src="">
-                <img src="">
+                <img src="assets/logo_andes.gif">
+                <img src="assets/text_bnwcoffee.gif">
             </div>
         </header>
-        <fieldset>
+        
         <main>
             <div id="janela_login">
-                <form action="loginaluno.php" method="post">
-                    <legend><h2>Tela de Login</h2></legend>
+                <form action="login.php" method="post">
+                    <h2>Tela de Login</h2>
                     <input type="text" name="usuario" placeholder="Usuário">
                     <input type="password" name="senha" placeholder="Senha">
                     <input type="submit" value="Login">
@@ -68,10 +67,10 @@
                 </form>
             </div>
         </main>
-</fieldset>
+
         <footer>
             <div id="footer_central">
-                <p>Evolução Esportes -2019</p>
+                <p>Projeto Salvador</p>
             </div>
         </footer>
     </body>
