@@ -1,4 +1,7 @@
 /* estilos da listagem */
+* {
+    text-decoration: none;
+}
 main div#listagem_produtos {
     margin:0 auto;
 }

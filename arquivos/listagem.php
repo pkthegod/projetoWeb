@@ -27,14 +27,15 @@
 <html lang="pt-br">
     <head>
         <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">     
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Lista de Itens</title>
-        
         <!-- estilo -->
+        <link href="_css/bootstrap.css" rel="stylesheet">
         <link href="_css/estilo.css" rel="stylesheet">
         <link href="_css/produtos.css" rel="stylesheet">
         <link href="_css/produto_pesquisa.css" rel="stylesheet">
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+        <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
     </head>
     <body>
         <?php include_once("_incluir/topo.php"); ?>
@@ -46,7 +47,7 @@
                 </form>
             </div>
             <div class="col-xl-12">
-                <table class="table-responsive table-bordered">
+                <table class="table table-sm" id="mainTable">
                     <thead class="thead-dark">
                         <tr>
                             <th scope="col" colspan="2">Nome do Produto</th>
@@ -61,7 +62,7 @@
             <?php
                 while($linha = mysqli_fetch_assoc($resultado)) {
             ?>
-                <table class="table-responsive table-bordered">
+                <table class="table table- sm">
                     <tbody>
                         <tr>
                             <td><?php echo utf8_encode($linha["nomeproduto"]) ?></td>
@@ -70,12 +71,13 @@
                             <td><?php echo $linha["estoque"] ?></td>
                             <td><?php echo $linha["nomefornecedor"] ?> </td>
                             <td>
-                                <button>
-                                    <a href="alteracao.php?codigo=<?php echo $linha["produtoID"] ?>">Alterar</a>
-                                </button><br><br>
-                                <button>
-                                    <a href="exclusao.php?codigo=<?php echo $linha["produtoID"] ?>">Excluir</a>
-                                </button>
+                                <div class="btn-group-vertical">
+                                    <button class="btn btn-warning">
+                                        <a href="alteracao.php?codigo=<?php echo $linha["produtoID"] ?>">Alterar</a></button><br><br>
+                                    <button class="btn btn-danger">
+                                        <a href="exclusao.php?codigo=<?php echo $linha["produtoID"] ?>">Excluir</a>
+                                    </button>
+                                </div>
                             </td>
                         </tr>
                     </tbody>
@@ -85,7 +87,16 @@
             ?> 
             </div>
         </main>
-        <?php include_once("_incluir/rodape.php"); ?>  
+        <?php include_once("_incluir/rodape.php"); ?>
+        <script type="text/javascript">
+            $(document).ready( function () {
+                $('#mainTable').DataTable();
+            } );
+
+            $(document).ready( function () {
+                $('#mainTable2').DataTable();
+            } );
+        </script>
     </body>
 </html>
 
