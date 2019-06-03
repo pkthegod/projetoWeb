@@ -40,25 +40,21 @@
 
     $info_produtos = mysqli_fetch_assoc($con_produtos);
 ?>
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html lang="pt-br">
     <head>
         <meta charset="UTF-8">
-        <title>Curso PHP INTEGRACAO</title>
-        
+        <title>Exclusão de Itens</title>
         <!-- estilo -->
         <link href="_css/estilo.css" rel="stylesheet">
         <link href="_css/alteracao.css" rel="stylesheet">
     </head>
-
     <body>
         <?php include_once("_incluir/topo.php"); ?>
-        
         <main>  
             <div id="janela_formulario">
                 <form action="exclusao.php" method="post">
                     <h2>Exclusão de Produtos</h2>
-                    
                     <label for="nomeproduto">Nome do Produto</label>
                     <input type="text" value="<?php echo utf8_encode($info_produtos["nomeproduto"])  ?>" name="nomeproduto" id="nomeproduto">
 
@@ -73,14 +69,12 @@
                     
                     <label for="fornecedor">Estoque</label>
                     <input type="text" value="<?php echo utf8_encode($info_produtos["nomefornecedor"])  ?>" name="fornecedor" id="fornecedor">
-                    
 
                     <input type="hidden" name="produtoID" value="<?php echo $info_produtos["produtoID"] ?>">
                     <input type="submit" value="Confirmar exclusão">                    
                 </form>   
             </div>            
         </main>
-
         <?php include_once("_incluir/rodape.php"); ?>  
     </body>
 </html>

@@ -4,16 +4,14 @@
     session_start();
 ?>
 
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html lang="pt-br">
     <head>
         <meta charset="UTF-8">
-        <title>Curso PHP FUNDAMENTAL</title>
-        
+        <title>Logout</title>
         <!-- estilo -->
         <link href="_css/estilo.css" rel="stylesheet">
     </head>
-
     <body>
         <header>
             <div id="header_central">
@@ -21,19 +19,15 @@
                 <img src="assets/text_bnwcoffee.gif">
             </div>
         </header>
-        
         <main> 
             <?php
                 // Exclue a variavel de sessao mencionada.
                 unset($_SESSION["usuario"]);
-
                 // Destrói todas as variáveis de sessão da app.
                 session_destroy(); 
                 header("location:login.php");
             ?>
-            
         </main>
-
         <footer>
             <div id="footer_central">
                 <p>Projeto Salvador</p>

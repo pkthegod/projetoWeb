@@ -57,11 +57,10 @@
 ?>
 
 <!doctype html>
-<html>
+<html lang="pt-br">
     <head>
         <meta charset="UTF-8">
-        <title>Curso PHP INTEGRACAO</title>
-        
+        <title>Página de alteração</title>
         <!-- estilo -->
         <link href="_css/estilo.css" rel="stylesheet">
         <link href="_css/alteracao.css" rel="stylesheet">
@@ -69,7 +68,6 @@
 
     <body>
         <?php include_once("_incluir/topo.php"); ?>
-        
         <main>  
             <div id="janela_formulario">
                 <form action="alteracao.php" method="post">
@@ -86,9 +84,6 @@
                     
                     <label for="estoque">Estoque</label>
                     <input type="text" value="<?php echo utf8_encode($info_produtos["estoque"])  ?>" name="estoque" id="estoque">
-                    
-                    
-                    
                     
                     <label for="fornecedorid">Fornecedor</label>
                     <select id="fornecedorid" name="fornecedorid"> 
@@ -112,14 +107,11 @@
                             }
                         ?>
                     </select>
-                    
-                    
                     <input type="hidden" name="produtoid" value="<?php echo $info_produtos["produtoID"] ?>">
                     <input type="submit" value="Confirmar alteração">                    
                 </form>   
             </div>
         </main>
-
         <?php include_once("_incluir/rodape.php"); ?>  
     </body>
 </html>
